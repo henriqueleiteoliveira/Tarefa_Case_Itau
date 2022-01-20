@@ -1,6 +1,7 @@
 package br.com.henrique.tarefas.dao.impl;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -206,7 +207,7 @@ public class TarefasDAOImpl implements TarefasDAO {
 				metricaItem.setTempoMedioConclusao((BigDecimal) mapa.get("tempoMedio"));
 				
 				if(metricaItem.getTempoMedioConclusao() != null) {
-					metricaItem.setTempoMedioConclusao(metricaItem.getTempoMedioConclusao().setScale(2));
+					metricaItem.setTempoMedioConclusao(metricaItem.getTempoMedioConclusao().setScale(2, RoundingMode.HALF_EVEN));
 				}
 				
 				listaMetrica.add(metricaItem);
