@@ -10,9 +10,9 @@ public interface TarefasDAO {
 
 	public List<StatusDTO> listarStatus(Integer idStatus) throws Exception;
 
-	public StatusDTO criarStatus(StatusDTO statusDTO) throws Exception;
+	public List<StatusDTO> criarStatus(StatusDTO statusDTO) throws Exception;
 
-	public TarefaDTO criarTarefa(TarefaDTO tarefaDTO) throws Exception;
+	public List<TarefaDTO> criarTarefa(TarefaDTO tarefaDTO) throws Exception;
 
 	public List<TarefaDTO> listarTarefa(Integer idTarefa) throws Exception;
 

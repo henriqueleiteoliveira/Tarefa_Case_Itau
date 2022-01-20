@@ -53,8 +53,8 @@ public class TarefasDAOImpl implements TarefasDAO {
 	}
 
 	@Override
-	public StatusDTO criarStatus(StatusDTO statusDTO) throws Exception {
-		StatusDTO statusSaida = new StatusDTO();
+	public List<StatusDTO> criarStatus(StatusDTO statusDTO) throws Exception {
+		List<StatusDTO> listaStatus = new ArrayList<StatusDTO>();
 		try {
 			StringBuilder query = new StringBuilder(" INSERT INTO status(nomeStatus) values(:nomeStatus) ");
 			
@@ -62,20 +62,22 @@ public class TarefasDAOImpl implements TarefasDAO {
 			params.addValue("nomeStatus", statusDTO.getNomeStatus());
 			KeyHolder keyHolder = new GeneratedKeyHolder();
 			jdbc.update(query.toString(), params, keyHolder);
-			
-			statusSaida.setIdStatus(keyHolder.getKey().intValue());
-			statusSaida.setNomeStatus(statusDTO.getNomeStatus());
 
-			return statusSaida;
+			StatusDTO statusItem = new StatusDTO();
+			statusItem.setIdStatus(keyHolder.getKey().intValue());
+			statusItem.setNomeStatus(statusDTO.getNomeStatus());
+
+			listaStatus.add(statusItem);
 			
+			return listaStatus;
 		} catch (Exception e) {
 			throw new Exception(e);
 		}
 	}
 
 	@Override
-	public TarefaDTO criarTarefa(TarefaDTO tarefaDTO) throws Exception {
-		TarefaDTO tarefaSaida = new TarefaDTO();
+	public List<TarefaDTO> criarTarefa(TarefaDTO tarefaDTO) throws Exception {
+		List<TarefaDTO> listaTarefa = new ArrayList<TarefaDTO>();
 		try {
 			StringBuilder query = new StringBuilder(" INSERT INTO tarefa (nome, dataCriacao, descricao, idStatus, observacao, nomeResponsavel) ")
 					.append(" VALUES(:nome, CURRENT_TIMESTAMP, :descricao, :idStatus, :observacao, :nomeResponsavel) ");
@@ -90,12 +92,14 @@ public class TarefasDAOImpl implements TarefasDAO {
 			KeyHolder keyHolder = new GeneratedKeyHolder();
 			jdbc.update(query.toString(), params, keyHolder);
 
-			tarefaSaida.setDataCriacao(LocalDateTime.now());			
-			tarefaSaida.setIdTarefa(keyHolder.getKey().intValue());
-			tarefaSaida.setNome(tarefaDTO.getNome());
+			TarefaDTO tarefaItem = new TarefaDTO();
+			tarefaItem.setDataCriacao(LocalDateTime.now());			
+			tarefaItem.setIdTarefa(keyHolder.getKey().intValue());
+			tarefaItem.setNome(tarefaDTO.getNome());
 
-			return tarefaSaida;
-			
+			listaTarefa.add(tarefaItem);
+
+			return listaTarefa;			
 		} catch (Exception e) {
 			throw new Exception(e);
 		}

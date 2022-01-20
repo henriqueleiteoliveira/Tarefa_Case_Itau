@@ -1,7 +1,5 @@
 package br.com.henrique.tarefas.webservice;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.henrique.tarefas.dto.MetricaTarefaDTO;
+import br.com.henrique.tarefas.dto.RetornoDTO;
 import br.com.henrique.tarefas.dto.StatusDTO;
 import br.com.henrique.tarefas.dto.TarefaDTO;
 import br.com.henrique.tarefas.facade.TarefasFacade;
@@ -24,75 +22,43 @@ public class TarefasWebService {
 	
 	@PostMapping
 	@RequestMapping("/criar-status")
-	public StatusDTO criarStatus(@RequestBody StatusDTO statusDTO) {
-		try {
-			return tarefasFacade.criarStatus(statusDTO);
-		} catch (Exception e) {
-			return null;
-		}
+	public RetornoDTO criarStatus(@RequestBody StatusDTO statusDTO) {
+		return tarefasFacade.criarStatus(statusDTO);
 	}
 	
 	@GetMapping
 	@RequestMapping("/listar-status")
-	public List<StatusDTO> listarStatus(Integer idStatus) {
-		try {
-			return tarefasFacade.listarStatus(idStatus);
-		} catch (Exception e) {
-			return null;
-		}
+	public RetornoDTO listarStatus(Integer idStatus) {
+		return tarefasFacade.listarStatus(idStatus);
 	}
 	
 	@PostMapping
 	@RequestMapping("/criar-tarefa")
-	public TarefaDTO criarTarefa(@RequestBody TarefaDTO tarefaDTO) {
-		try {
-			return tarefasFacade.criarTarefa(tarefaDTO);
-		} catch (Exception e) {
-			return null;
-		}
+	public RetornoDTO criarTarefa(@RequestBody TarefaDTO tarefaDTO) {
+		return tarefasFacade.criarTarefa(tarefaDTO);
 	}
 	
 	@GetMapping
 	@RequestMapping("/listar-tarefa")
-	public List<TarefaDTO> listarTarefa(Integer idTarefa) {
-		try {
-			return tarefasFacade.listarTarefa(idTarefa);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return null;
-		}
+	public RetornoDTO listarTarefa(Integer idTarefa) {
+		return tarefasFacade.listarTarefa(idTarefa);
 	}
 	
 	@PutMapping
 	@RequestMapping("/concluir-tarefa")
-	public List<TarefaDTO> concluirTarefa(@RequestBody TarefaDTO tarefaDTO) {
-		try {
-			return tarefasFacade.concluirTarefa(tarefaDTO);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return null;
-		}
+	public RetornoDTO concluirTarefa(@RequestBody TarefaDTO tarefaDTO) {
+		return tarefasFacade.concluirTarefa(tarefaDTO);
 	}
 	
 	@DeleteMapping
 	@RequestMapping("/deletar-tarefa")
-	public void deletarTarefa(@RequestBody TarefaDTO tarefaDTO){
-		try {
-			tarefasFacade.deletarTarefa(tarefaDTO);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+	public RetornoDTO deletarTarefa(@RequestBody TarefaDTO tarefaDTO){
+		return tarefasFacade.deletarTarefa(tarefaDTO);
 	}
 	
 	@GetMapping
 	@RequestMapping("/listar-volume-tarefa")
-	public List<MetricaTarefaDTO> listarVolumeTarefas(){
-		try {
-			return tarefasFacade.listarVolumeTarefas();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return null;
-		}
-		
+	public RetornoDTO listarVolumeTarefas(){
+		return tarefasFacade.listarVolumeTarefas();		
 	}
 }
