@@ -34,7 +34,7 @@ A aqui está um exemplo do serviço [Listar Status](http://ec2-3-85-162-183.comp
 
 O formato padrão das chamadas é {{url}}/tarefas/{{caminho-serviço}}.
 
-Todos serviços do tipo GET receberam parâmetros pela url, mas caso não seja passado o parâmetro, retornara todos.
+Os serviços do tipo GET receberam parâmetros pela url como visto nas chamadas do arquivo collection.json, mas caso não seja passado o parâmetro, retornara todos.
 
 ### Serviços:
 - **POST** /criar-status

@@ -18,12 +18,12 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nomeStatus\" : \"testePostman\"\r\n}"
+					"raw": "{\r\n    \"nomeStatus\" : \"completed\"\r\n}"
 				},
 				"url": {
-					"raw": "{{url}}/tarefas/criar-status",
+					"raw": "{{awsUrl}}/tarefas/criar-status",
 					"host": [
-						"{{url}}"
+						"{{awsUrl}}"
 					],
 					"path": [
 						"tarefas",
@@ -39,13 +39,19 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/tarefas/listar-status",
+					"raw": "{{awsUrl}}/tarefas/listar-status?idStatus=1",
 					"host": [
-						"{{url}}"
+						"{{awsUrl}}"
 					],
 					"path": [
 						"tarefas",
 						"listar-status"
+					],
+					"query": [
+						{
+							"key": "idStatus",
+							"value": "1"
+						}
 					]
 				}
 			},
@@ -58,7 +64,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nome\": \"Terminar codigo\",\r\n    \"descricao\": \"terminar de criar os metodos do codigo\",\r\n    \"idStatus\": 1,\r\n    \"nomeResponsavel\": \"Henrique Leite\"\r\n}",
+					"raw": "{\r\n    \"nome\": \"Terminar codigo\",\r\n    \"descricao\": \"terminar de criar os metodos do codigo\",\r\n    \"idStatus\": 1,\r\n    \"observacao\" : \"teste\",\r\n    \"nomeResponsavel\": \"Henrique Leite\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -66,9 +72,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/tarefas/criar-tarefa",
+					"raw": "{{awsUrl}}/tarefas/criar-tarefa",
 					"host": [
-						"{{url}}"
+						"{{awsUrl}}"
 					],
 					"path": [
 						"tarefas",
@@ -84,13 +90,19 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/tarefas/listar-tarefa",
+					"raw": "{{awsUrl}}/tarefas/listar-tarefa?idTarefa=6",
 					"host": [
-						"{{url}}"
+						"{{awsUrl}}"
 					],
 					"path": [
 						"tarefas",
 						"listar-tarefa"
+					],
+					"query": [
+						{
+							"key": "idTarefa",
+							"value": "6"
+						}
 					]
 				}
 			},
@@ -103,7 +115,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idTarefa\": 7\r\n}",
+					"raw": "{\r\n    \"idTarefa\": 3\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -111,9 +123,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/tarefas/concluir-tarefa",
+					"raw": "{{awsUrl}}/tarefas/concluir-tarefa",
 					"host": [
-						"{{url}}"
+						"{{awsUrl}}"
 					],
 					"path": [
 						"tarefas",
@@ -138,9 +150,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/tarefas/deletar-tarefa",
+					"raw": "{{awsUrl}}/tarefas/deletar-tarefa",
 					"host": [
-						"{{url}}"
+						"{{awsUrl}}"
 					],
 					"path": [
 						"tarefas",
@@ -156,9 +168,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/tarefas/listar-volume-tarefa",
+					"raw": "{{awsUrl}}/tarefas/listar-volume-tarefa",
 					"host": [
-						"{{url}}"
+						"{{awsUrl}}"
 					],
 					"path": [
 						"tarefas",
