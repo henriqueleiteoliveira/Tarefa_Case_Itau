@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "bdd9fca1-9cb6-45e6-a479-0b930b75b10b",
+		"name": "TarefaCaseItau",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Criar Status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomeStatus\" : \"testePostman\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/tarefas/criar-status",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tarefas",
+						"criar-status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarStatus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/tarefas/listar-status",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tarefas",
+						"listar-status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Tarefa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Terminar codigo\",\r\n    \"descricao\": \"terminar de criar os metodos do codigo\",\r\n    \"idStatus\": 1,\r\n    \"nomeResponsavel\": \"Henrique Leite\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/tarefas/criar-tarefa",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tarefas",
+						"criar-tarefa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Tarefas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/tarefas/listar-tarefa",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tarefas",
+						"listar-tarefa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Concluir Tarefa",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idTarefa\": 7\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/tarefas/concluir-tarefa",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tarefas",
+						"concluir-tarefa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Tarefa",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idTarefa\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/tarefas/deletar-tarefa",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tarefas",
+						"deletar-tarefa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Volume Tarefas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/tarefas/listar-volume-tarefa",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tarefas",
+						"listar-volume-tarefa"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "awsUrl",
+			"value": "http://ec2-3-85-162-183.compute-1.amazonaws.com:8080",
+			"type": "string"
+		}
+	]
+}
